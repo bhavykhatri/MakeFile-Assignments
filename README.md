@@ -12,3 +12,9 @@
 3. **What does -O flag do in gcc and how it is different from -o?**
 
   ``-O`` flag is used for optimization where compiler tries to decrease a great deal of compilation time whereas -o is simply used for naming the output executables.
+
+4. **Please also explain other commonly used flag options in gcc?**
+
+  ``-g``: This flag allow us to use the debugger gdb.
+  ``-Og``: This flag optimizes debugging experience
+  Another common flag is the ``-std=gnu99`` option, which tells gcc to use the "gnu c version of the 1999 c standard."
