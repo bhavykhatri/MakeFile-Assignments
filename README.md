@@ -18,3 +18,9 @@
   ``-g``: This flag allow us to use the debugger gdb.
   ``-Og``: This flag optimizes debugging experience
   Another common flag is the ``-std=gnu99`` option, which tells gcc to use the "gnu c version of the 1999 c standard."
+
+### Make
+
+1. **Why cann't we use bash script to automate task for building project instead of using make? What extra feature does make provide?**
+
+  The main selling point of make is build only those files that are required. Since in a large project building project again and again even when you have added just a small feature can be cumbersome due to time taken to compile. Make comes in handy at that place. It only re-compiles those files which are being changed or the ones whose parental dependencies are changed. It helps to decrease the total time taken to build the project.
