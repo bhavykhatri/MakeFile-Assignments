@@ -1,0 +1,46 @@
+# CSE 374 Makefile exampmle for the talk/speak/shout program.
+# Version 2: Variables
+
+# The compiler: gcc for C programs
+CC = gcc
+
+# Compiler flags:
+# -Wall for debugger warnings
+# -std=c11 for updated standards
+CFLAGS = -Wall -std=c11
+ifdef DEBUG
+	CFLAGS += -g
+endif
+
+# The name of the program that we are producing.
+TARGET = talk
+
+# When we just run "make", what gets built? 
+# This is a "phony" target
+# that just tells make what other targets to build.
+all: $(TARGET)
+
+# All the .o files we need for our executable.
+OBJS = main.o speak.o shout.o
+
+# The executable
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o talk $(OBJS)
+
+# An option for making a debug target
+debug: CFLAGS += -g
+debug: $(TARGET)
+
+# Individual source files
+speak.o: speak.c speak.h
+	$(CC) $(CFLAGS) -c speak.c
+
+shout.o: shout.c shout.h speak.h
+	$(CC) $(CFLAGS) -c shout.c
+
+main.o: main.c speak.h shout.h
+	$(CC) $(CFLAGS) -c main.c
+
+# A "phony" target to remove built files and backups
+clean:
+	rm -f *.o talk *~
